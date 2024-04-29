@@ -1,9 +1,5 @@
 <p style="color: green"><%= notice %></p>
-<%= form_with url: search_movies_path, method: :post do |form| %>
-  <%= form.search_field :title_search %>
-  <!-- <%= form.submit 'Search' %> -->
-<% end %>
-<div id="search_results"></div>
+<%= render "movies/search_form" %>
 <h1>Movies</h1>
 <div id="movies">
   <% @movies.each do |movie| %>

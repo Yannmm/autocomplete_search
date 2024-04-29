@@ -2,11 +2,14 @@ class MoviesController < ApplicationController
   before_action :set_movie, only: %i[ show edit update destroy ]
 
   def search
-    
-
+    if params[:title_search].present?
+      @movies = Movie.filter_by_title(params[:title_search])
+    else 
+      @movies = []
+    end
     respond_to do |format|
       format.turbo_stream do 
-        render turbo_stream: turbo_stream.update('search_results', params[:title_search])
+        render turbo_stream: turbo_stream.update('search_results', partial: "search_results", locals: { movies: @movies, keyword: params[:title_search] })
       end
     end
   end
