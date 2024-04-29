@@ -1,0 +1,1643 @@
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-04-29 08:53:56.028339', '2024-04-29 08:53:56.028342') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMovies (20240429085341)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240429085341') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2024-04-29 16:55:15 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:6
+  Rendered movies/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1947)
+  Rendered layout layouts/application.html.erb (Duration: 157.6ms | Allocations: 97109)
+Completed 200 OK in 218ms (Views: 163.1ms | ActiveRecord: 1.6ms | Allocations: 112759)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 16:55:16 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:6
+  Rendered movies/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 3015)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 4317)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.1ms | Allocations: 4670)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 16:57:17 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.0ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:6
+  Rendered movies/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1712)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 17007)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 1.5ms | Allocations: 18902)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Vertigo"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Vertigo"], ["created_at", "2024-04-29 09:10:03.427823"], ["updated_at", "2024-04-29 09:10:03.427823"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Terminator"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Terminator"], ["created_at", "2024-04-29 09:10:03.430913"], ["updated_at", "2024-04-29 09:10:03.430913"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Dead Poets Society"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Dead Poets Society"], ["created_at", "2024-04-29 09:10:03.432729"], ["updated_at", "2024-04-29 09:10:03.432729"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "North by Northwest"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "North by Northwest"], ["created_at", "2024-04-29 09:10:03.434218"], ["updated_at", "2024-04-29 09:10:03.434218"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Touch of Evil"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Touch of Evil"], ["created_at", "2024-04-29 09:10:03.435660"], ["updated_at", "2024-04-29 09:10:03.435660"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "How to Train Your Dragon"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "How to Train Your Dragon"], ["created_at", "2024-04-29 09:10:03.437415"], ["updated_at", "2024-04-29 09:10:03.437415"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars: Episode V - The Empire Strikes Back"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars: Episode V - The Empire Strikes Back"], ["created_at", "2024-04-29 09:10:03.439071"], ["updated_at", "2024-04-29 09:10:03.439071"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Thing"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Thing"], ["created_at", "2024-04-29 09:10:03.440634"], ["updated_at", "2024-04-29 09:10:03.440634"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Sting"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Sting"], ["created_at", "2024-04-29 09:10:03.442170"], ["updated_at", "2024-04-29 09:10:03.442170"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Die Hard"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Die Hard"], ["created_at", "2024-04-29 09:10:03.443704"], ["updated_at", "2024-04-29 09:10:03.443704"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Whiplash"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Whiplash"], ["created_at", "2024-04-29 09:10:03.445353"], ["updated_at", "2024-04-29 09:10:03.445353"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Nuovo Cinema Paradiso"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Nuovo Cinema Paradiso"], ["created_at", "2024-04-29 09:10:03.447207"], ["updated_at", "2024-04-29 09:10:03.447207"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Shining"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Shining"], ["created_at", "2024-04-29 09:10:03.448900"], ["updated_at", "2024-04-29 09:10:03.448900"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Lord of the Rings: The Two Towers"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Lord of the Rings: The Two Towers"], ["created_at", "2024-04-29 09:10:03.450314"], ["updated_at", "2024-04-29 09:10:03.450314"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Life of Brian"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Life of Brian"], ["created_at", "2024-04-29 09:10:03.451687"], ["updated_at", "2024-04-29 09:10:03.451687"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Godfather: Part II"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Godfather: Part II"], ["created_at", "2024-04-29 09:10:03.453057"], ["updated_at", "2024-04-29 09:10:03.453057"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Witness for the Prosecution"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Witness for the Prosecution"], ["created_at", "2024-04-29 09:10:03.454784"], ["updated_at", "2024-04-29 09:10:03.454784"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Princess Bride"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Princess Bride"], ["created_at", "2024-04-29 09:10:03.456189"], ["updated_at", "2024-04-29 09:10:03.456189"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Forrest Gump"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Forrest Gump"], ["created_at", "2024-04-29 09:10:03.462579"], ["updated_at", "2024-04-29 09:10:03.462579"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Double Indemnity"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Double Indemnity"], ["created_at", "2024-04-29 09:10:03.464324"], ["updated_at", "2024-04-29 09:10:03.464324"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Jurassic Park"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Jurassic Park"], ["created_at", "2024-04-29 09:10:03.466411"], ["updated_at", "2024-04-29 09:10:03.466411"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "L.A. Confidential"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "L.A. Confidential"], ["created_at", "2024-04-29 09:10:03.467761"], ["updated_at", "2024-04-29 09:10:03.467761"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Maltese Falcon"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Maltese Falcon"], ["created_at", "2024-04-29 09:10:03.469120"], ["updated_at", "2024-04-29 09:10:03.469120"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Fight Club"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Fight Club"], ["created_at", "2024-04-29 09:10:03.470383"], ["updated_at", "2024-04-29 09:10:03.470383"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Groundhog Day"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Groundhog Day"], ["created_at", "2024-04-29 09:10:03.471635"], ["updated_at", "2024-04-29 09:10:03.471635"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "There Will Be Blood"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "There Will Be Blood"], ["created_at", "2024-04-29 09:10:03.472924"], ["updated_at", "2024-04-29 09:10:03.472924"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Donnie Darko"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Donnie Darko"], ["created_at", "2024-04-29 09:10:03.474165"], ["updated_at", "2024-04-29 09:10:03.474165"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Finding Nemo"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Finding Nemo"], ["created_at", "2024-04-29 09:10:03.475743"], ["updated_at", "2024-04-29 09:10:03.475743"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Prisoners"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Prisoners"], ["created_at", "2024-04-29 09:10:03.477426"], ["updated_at", "2024-04-29 09:10:03.477426"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "12 Years a Slave"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "12 Years a Slave"], ["created_at", "2024-04-29 09:10:03.479225"], ["updated_at", "2024-04-29 09:10:03.479225"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Paths of Glory"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Paths of Glory"], ["created_at", "2024-04-29 09:10:03.480781"], ["updated_at", "2024-04-29 09:10:03.480781"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Pulp Fiction"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Pulp Fiction"], ["created_at", "2024-04-29 09:10:03.482055"], ["updated_at", "2024-04-29 09:10:03.482055"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Apocalypse Now"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Apocalypse Now"], ["created_at", "2024-04-29 09:10:03.483288"], ["updated_at", "2024-04-29 09:10:03.483288"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Seven Samurai"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Seven Samurai"], ["created_at", "2024-04-29 09:10:03.484579"], ["updated_at", "2024-04-29 09:10:03.484579"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Rush"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Rush"], ["created_at", "2024-04-29 09:10:03.485988"], ["updated_at", "2024-04-29 09:10:03.485988"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "2001: A Space Odyssey"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "2001: A Space Odyssey"], ["created_at", "2024-04-29 09:10:03.487813"], ["updated_at", "2024-04-29 09:10:03.487813"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Monty Python and the Holy Grail"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Monty Python and the Holy Grail"], ["created_at", "2024-04-29 09:10:03.489168"], ["updated_at", "2024-04-29 09:10:03.489168"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Twelve Monkeys"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Twelve Monkeys"], ["created_at", "2024-04-29 09:10:03.490432"], ["updated_at", "2024-04-29 09:10:03.490432"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Raging Bull"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Raging Bull"], ["created_at", "2024-04-29 09:10:03.491783"], ["updated_at", "2024-04-29 09:10:03.491783"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars: Episode IX – The Rise of Skywalker"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars: Episode IX – The Rise of Skywalker"], ["created_at", "2024-04-29 09:10:03.493151"], ["updated_at", "2024-04-29 09:10:03.493151"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Unforgiven"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Unforgiven"], ["created_at", "2024-04-29 09:10:03.494481"], ["updated_at", "2024-04-29 09:10:03.494481"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Grand Budapest Hotel"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Grand Budapest Hotel"], ["created_at", "2024-04-29 09:10:03.496020"], ["updated_at", "2024-04-29 09:10:03.496020"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "12 Angry Men"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "12 Angry Men"], ["created_at", "2024-04-29 09:10:03.498374"], ["updated_at", "2024-04-29 09:10:03.498374"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Truman Show"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Truman Show"], ["created_at", "2024-04-29 09:10:03.500353"], ["updated_at", "2024-04-29 09:10:03.500353"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Pianist"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Pianist"], ["created_at", "2024-04-29 09:10:03.502052"], ["updated_at", "2024-04-29 09:10:03.502052"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Gandhi"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Gandhi"], ["created_at", "2024-04-29 09:10:03.503390"], ["updated_at", "2024-04-29 09:10:03.503390"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Mad Max: Fury Road"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Mad Max: Fury Road"], ["created_at", "2024-04-29 09:10:03.504794"], ["updated_at", "2024-04-29 09:10:03.504794"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Scarface"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Scarface"], ["created_at", "2024-04-29 09:10:03.506133"], ["updated_at", "2024-04-29 09:10:03.506133"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Stand by Me"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Stand by Me"], ["created_at", "2024-04-29 09:10:03.507457"], ["updated_at", "2024-04-29 09:10:03.507457"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Prestige"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Prestige"], ["created_at", "2024-04-29 09:10:03.508784"], ["updated_at", "2024-04-29 09:10:03.508784"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "A Wednesday"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "A Wednesday"], ["created_at", "2024-04-29 09:10:03.510109"], ["updated_at", "2024-04-29 09:10:03.510109"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Into the Wild"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Into the Wild"], ["created_at", "2024-04-29 09:10:03.511504"], ["updated_at", "2024-04-29 09:10:03.511504"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Princess Mononoke"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Princess Mononoke"], ["created_at", "2024-04-29 09:10:03.512840"], ["updated_at", "2024-04-29 09:10:03.512840"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Mr. Smith Goes to Washington"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Mr. Smith Goes to Washington"], ["created_at", "2024-04-29 09:10:03.514238"], ["updated_at", "2024-04-29 09:10:03.514238"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Silence of the Lambs"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Silence of the Lambs"], ["created_at", "2024-04-29 09:10:03.515600"], ["updated_at", "2024-04-29 09:10:03.515600"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Once Upon a Time in America"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Once Upon a Time in America"], ["created_at", "2024-04-29 09:10:03.516961"], ["updated_at", "2024-04-29 09:10:03.516961"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Cidade de Deus"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Cidade de Deus"], ["created_at", "2024-04-29 09:10:03.518376"], ["updated_at", "2024-04-29 09:10:03.518376"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Raiders of the Lost Ark"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Raiders of the Lost Ark"], ["created_at", "2024-04-29 09:10:03.519772"], ["updated_at", "2024-04-29 09:10:03.519772"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Blade Runner"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Blade Runner"], ["created_at", "2024-04-29 09:10:03.521591"], ["updated_at", "2024-04-29 09:10:03.521591"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "City of God"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "City of God"], ["created_at", "2024-04-29 09:10:03.523233"], ["updated_at", "2024-04-29 09:10:03.523233"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Apartment"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Apartment"], ["created_at", "2024-04-29 09:10:03.524660"], ["updated_at", "2024-04-29 09:10:03.524660"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Gran Torino"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Gran Torino"], ["created_at", "2024-04-29 09:10:03.526021"], ["updated_at", "2024-04-29 09:10:03.526021"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Fargo"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Fargo"], ["created_at", "2024-04-29 09:10:03.527405"], ["updated_at", "2024-04-29 09:10:03.527405"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Blade Runner 2049"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Blade Runner 2049"], ["created_at", "2024-04-29 09:10:03.528788"], ["updated_at", "2024-04-29 09:10:03.528788"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Treasure of the Sierra Madre"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Treasure of the Sierra Madre"], ["created_at", "2024-04-29 09:10:03.530154"], ["updated_at", "2024-04-29 09:10:03.530154"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Elephant Man"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Elephant Man"], ["created_at", "2024-04-29 09:10:03.531508"], ["updated_at", "2024-04-29 09:10:03.531508"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Hacksaw Ridge"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Hacksaw Ridge"], ["created_at", "2024-04-29 09:10:03.532864"], ["updated_at", "2024-04-29 09:10:03.532864"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Life Is Beautiful"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Life Is Beautiful"], ["created_at", "2024-04-29 09:10:03.535154"], ["updated_at", "2024-04-29 09:10:03.535154"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Catch Me If You Can"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Catch Me If You Can"], ["created_at", "2024-04-29 09:10:03.536572"], ["updated_at", "2024-04-29 09:10:03.536572"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars: Episode III – Revenge of the Sith"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars: Episode III – Revenge of the Sith"], ["created_at", "2024-04-29 09:10:03.537955"], ["updated_at", "2024-04-29 09:10:03.537955"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Room"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Room"], ["created_at", "2024-04-29 09:10:03.539323"], ["updated_at", "2024-04-29 09:10:03.539323"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Citizen Kane"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Citizen Kane"], ["created_at", "2024-04-29 09:10:03.540738"], ["updated_at", "2024-04-29 09:10:03.540738"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Braveheart"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Braveheart"], ["created_at", "2024-04-29 09:10:03.542102"], ["updated_at", "2024-04-29 09:10:03.542102"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "In the Name of the Father"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "In the Name of the Father"], ["created_at", "2024-04-29 09:10:03.543477"], ["updated_at", "2024-04-29 09:10:03.543477"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Monsters, Inc."], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Monsters, Inc."], ["created_at", "2024-04-29 09:10:03.544904"], ["updated_at", "2024-04-29 09:10:03.544904"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Dunkirk"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Dunkirk"], ["created_at", "2024-04-29 09:10:03.546316"], ["updated_at", "2024-04-29 09:10:03.546316"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Sunset Blvd."], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Sunset Blvd."], ["created_at", "2024-04-29 09:10:03.547692"], ["updated_at", "2024-04-29 09:10:03.547692"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Terminator 2: Judgment Day"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Terminator 2: Judgment Day"], ["created_at", "2024-04-29 09:10:03.549133"], ["updated_at", "2024-04-29 09:10:03.549133"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Platoon"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Platoon"], ["created_at", "2024-04-29 09:10:03.550509"], ["updated_at", "2024-04-29 09:10:03.550509"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Amadeus"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Amadeus"], ["created_at", "2024-04-29 09:10:03.551943"], ["updated_at", "2024-04-29 09:10:03.551943"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Good Will Hunting"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Good Will Hunting"], ["created_at", "2024-04-29 09:10:03.553332"], ["updated_at", "2024-04-29 09:10:03.553332"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "City Lights"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.3ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "City Lights"], ["created_at", "2024-04-29 09:10:03.554727"], ["updated_at", "2024-04-29 09:10:03.554727"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Bourne Ultimatum"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Bourne Ultimatum"], ["created_at", "2024-04-29 09:10:03.557412"], ["updated_at", "2024-04-29 09:10:03.557412"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Lord of the Rings: The Return of the King"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Lord of the Rings: The Return of the King"], ["created_at", "2024-04-29 09:10:03.559088"], ["updated_at", "2024-04-29 09:10:03.559088"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars: Episode VI - Return of the Jedi"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars: Episode VI - Return of the Jedi"], ["created_at", "2024-04-29 09:10:03.560529"], ["updated_at", "2024-04-29 09:10:03.560529"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Casino"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Casino"], ["created_at", "2024-04-29 09:10:03.561951"], ["updated_at", "2024-04-29 09:10:03.561951"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "To Kill a Mockingbird"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "To Kill a Mockingbird"], ["created_at", "2024-04-29 09:10:03.563395"], ["updated_at", "2024-04-29 09:10:03.563395"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Help"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Help"], ["created_at", "2024-04-29 09:10:03.564787"], ["updated_at", "2024-04-29 09:10:03.564787"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Cool Hand Luke"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Cool Hand Luke"], ["created_at", "2024-04-29 09:10:03.566208"], ["updated_at", "2024-04-29 09:10:03.566208"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "V for Vendetta"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "V for Vendetta"], ["created_at", "2024-04-29 09:10:03.568200"], ["updated_at", "2024-04-29 09:10:03.568200"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Indiana Jones and the Last Crusade"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Indiana Jones and the Last Crusade"], ["created_at", "2024-04-29 09:10:03.570187"], ["updated_at", "2024-04-29 09:10:03.570187"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Dog Day Afternoon"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Dog Day Afternoon"], ["created_at", "2024-04-29 09:10:03.571644"], ["updated_at", "2024-04-29 09:10:03.571644"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Stalker"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Stalker"], ["created_at", "2024-04-29 09:10:03.573099"], ["updated_at", "2024-04-29 09:10:03.573099"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Sixth Sense"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Sixth Sense"], ["created_at", "2024-04-29 09:10:03.574529"], ["updated_at", "2024-04-29 09:10:03.574529"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Saving Private Ryan"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Saving Private Ryan"], ["created_at", "2024-04-29 09:10:03.575934"], ["updated_at", "2024-04-29 09:10:03.575934"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Network"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Network"], ["created_at", "2024-04-29 09:10:03.577429"], ["updated_at", "2024-04-29 09:10:03.577429"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Intouchables"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Intouchables"], ["created_at", "2024-04-29 09:10:03.578876"], ["updated_at", "2024-04-29 09:10:03.578876"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "La La Land"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "La La Land"], ["created_at", "2024-04-29 09:10:03.580452"], ["updated_at", "2024-04-29 09:10:03.580452"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Judgment at Nuremberg"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Judgment at Nuremberg"], ["created_at", "2024-04-29 09:10:03.582766"], ["updated_at", "2024-04-29 09:10:03.582766"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Departed"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Departed"], ["created_at", "2024-04-29 09:10:03.584833"], ["updated_at", "2024-04-29 09:10:03.584833"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Memento"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Memento"], ["created_at", "2024-04-29 09:10:03.586959"], ["updated_at", "2024-04-29 09:10:03.586959"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Cinema Paradiso"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Cinema Paradiso"], ["created_at", "2024-04-29 09:10:03.589145"], ["updated_at", "2024-04-29 09:10:03.589145"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Some Like It Hot"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Some Like It Hot"], ["created_at", "2024-04-29 09:10:03.590990"], ["updated_at", "2024-04-29 09:10:03.590990"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "3 Idiots"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "3 Idiots"], ["created_at", "2024-04-29 09:10:03.592476"], ["updated_at", "2024-04-29 09:10:03.592476"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Spirited Away"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Spirited Away"], ["created_at", "2024-04-29 09:10:03.593900"], ["updated_at", "2024-04-29 09:10:03.593900"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Persona"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Persona"], ["created_at", "2024-04-29 09:10:03.595317"], ["updated_at", "2024-04-29 09:10:03.595317"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Beauty and the Beast"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Beauty and the Beast"], ["created_at", "2024-04-29 09:10:03.596788"], ["updated_at", "2024-04-29 09:10:03.596788"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Matrix"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Matrix"], ["created_at", "2024-04-29 09:10:03.598252"], ["updated_at", "2024-04-29 09:10:03.598252"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Sholay"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Sholay"], ["created_at", "2024-04-29 09:10:03.599751"], ["updated_at", "2024-04-29 09:10:03.599751"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Toy Story 3"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Toy Story 3"], ["created_at", "2024-04-29 09:10:03.602325"], ["updated_at", "2024-04-29 09:10:03.602325"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Mary and Max"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Mary and Max"], ["created_at", "2024-04-29 09:10:03.603793"], ["updated_at", "2024-04-29 09:10:03.603793"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Goodfellas"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Goodfellas"], ["created_at", "2024-04-29 09:10:03.605267"], ["updated_at", "2024-04-29 09:10:03.605267"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Metropolis"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Metropolis"], ["created_at", "2024-04-29 09:10:03.606686"], ["updated_at", "2024-04-29 09:10:03.606686"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Taxi Driver"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Taxi Driver"], ["created_at", "2024-04-29 09:10:03.608108"], ["updated_at", "2024-04-29 09:10:03.608108"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "It Happened One Night"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "It Happened One Night"], ["created_at", "2024-04-29 09:10:03.609537"], ["updated_at", "2024-04-29 09:10:03.609537"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Gladiator"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Gladiator"], ["created_at", "2024-04-29 09:10:03.611038"], ["updated_at", "2024-04-29 09:10:03.611038"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Dial M for Murder"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Dial M for Murder"], ["created_at", "2024-04-29 09:10:03.613074"], ["updated_at", "2024-04-29 09:10:03.613074"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Dark Knight"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Dark Knight"], ["created_at", "2024-04-29 09:10:03.615284"], ["updated_at", "2024-04-29 09:10:03.615284"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "American Beauty"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "American Beauty"], ["created_at", "2024-04-29 09:10:03.616717"], ["updated_at", "2024-04-29 09:10:03.616717"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Green Mile"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Green Mile"], ["created_at", "2024-04-29 09:10:03.618060"], ["updated_at", "2024-04-29 09:10:03.618060"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Eternal Sunshine of the Spotless Mind"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Eternal Sunshine of the Spotless Mind"], ["created_at", "2024-04-29 09:10:03.619465"], ["updated_at", "2024-04-29 09:10:03.619465"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Batman Begins"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Batman Begins"], ["created_at", "2024-04-29 09:10:03.620947"], ["updated_at", "2024-04-29 09:10:03.620947"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Big Lebowski"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Big Lebowski"], ["created_at", "2024-04-29 09:10:03.622313"], ["updated_at", "2024-04-29 09:10:03.622313"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Paper Moon"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Paper Moon"], ["created_at", "2024-04-29 09:10:03.624151"], ["updated_at", "2024-04-29 09:10:03.624151"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Interstellar"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Interstellar"], ["created_at", "2024-04-29 09:10:03.625563"], ["updated_at", "2024-04-29 09:10:03.625563"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Bicycle Thieves"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Bicycle Thieves"], ["created_at", "2024-04-29 09:10:03.626853"], ["updated_at", "2024-04-29 09:10:03.626853"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Hotel Rwanda"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Hotel Rwanda"], ["created_at", "2024-04-29 09:10:03.628207"], ["updated_at", "2024-04-29 09:10:03.628207"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Wolf of Wall Street"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Wolf of Wall Street"], ["created_at", "2024-04-29 09:10:03.629480"], ["updated_at", "2024-04-29 09:10:03.629480"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Shawshank Redemption"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Shawshank Redemption"], ["created_at", "2024-04-29 09:10:03.630931"], ["updated_at", "2024-04-29 09:10:03.630931"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Best Years of Our Lives"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Best Years of Our Lives"], ["created_at", "2024-04-29 09:10:03.632240"], ["updated_at", "2024-04-29 09:10:03.632240"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Great Escape"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Great Escape"], ["created_at", "2024-04-29 09:10:03.634406"], ["updated_at", "2024-04-29 09:10:03.634406"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Modern Times"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Modern Times"], ["created_at", "2024-04-29 09:10:03.636359"], ["updated_at", "2024-04-29 09:10:03.636359"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Kid"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Kid"], ["created_at", "2024-04-29 09:10:03.638098"], ["updated_at", "2024-04-29 09:10:03.638098"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Paris, Texas"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Paris, Texas"], ["created_at", "2024-04-29 09:10:03.639522"], ["updated_at", "2024-04-29 09:10:03.639522"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Rocky"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Rocky"], ["created_at", "2024-04-29 09:10:03.640785"], ["updated_at", "2024-04-29 09:10:03.640785"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars: Episode IV – A New Hope"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars: Episode IV – A New Hope"], ["created_at", "2024-04-29 09:10:03.642176"], ["updated_at", "2024-04-29 09:10:03.642176"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Django Unchained"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Django Unchained"], ["created_at", "2024-04-29 09:10:03.643484"], ["updated_at", "2024-04-29 09:10:03.643484"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "No Country for Old Men"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "No Country for Old Men"], ["created_at", "2024-04-29 09:10:03.644778"], ["updated_at", "2024-04-29 09:10:03.644778"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Lawrence of Arabia"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Lawrence of Arabia"], ["created_at", "2024-04-29 09:10:03.646323"], ["updated_at", "2024-04-29 09:10:03.646323"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Full Metal Jacket"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Full Metal Jacket"], ["created_at", "2024-04-29 09:10:03.648083"], ["updated_at", "2024-04-29 09:10:03.648083"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Toy Story 2"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Toy Story 2"], ["created_at", "2024-04-29 09:10:03.649570"], ["updated_at", "2024-04-29 09:10:03.649570"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Oldeuboi"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Oldeuboi"], ["created_at", "2024-04-29 09:10:03.650856"], ["updated_at", "2024-04-29 09:10:03.650856"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Gone with the Wind"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Gone with the Wind"], ["created_at", "2024-04-29 09:10:03.652150"], ["updated_at", "2024-04-29 09:10:03.652150"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Alien"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Alien"], ["created_at", "2024-04-29 09:10:03.653551"], ["updated_at", "2024-04-29 09:10:03.653551"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "The Lord of the Rings: The Fellowship of the Ring"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "The Lord of the Rings: The Fellowship of the Ring"], ["created_at", "2024-04-29 09:10:03.654911"], ["updated_at", "2024-04-29 09:10:03.654911"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Star Wars"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Star Wars"], ["created_at", "2024-04-29 09:10:03.656371"], ["updated_at", "2024-04-29 09:10:03.656371"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "WALL·E"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "WALL·E"], ["created_at", "2024-04-29 09:10:03.658187"], ["updated_at", "2024-04-29 09:10:03.658187"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Oldboy"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.1ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Oldboy"], ["created_at", "2024-04-29 09:10:03.660567"], ["updated_at", "2024-04-29 09:10:03.660567"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Once Upon a Time in the West"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Once Upon a Time in the West"], ["created_at", "2024-04-29 09:10:03.662370"], ["updated_at", "2024-04-29 09:10:03.662370"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mMovie Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "movies" WHERE "movies"."title" = ? LIMIT ?[0m  [["title", "Back to the Future"], ["LIMIT", 1]]
+  [1m[36mMovie Create (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "created_at", "updated_at") VALUES (?, ?, ?) RETURNING "id"[0m  [["title", "Back to the Future"], ["created_at", "2024-04-29 09:10:03.663750"], ["updated_at", "2024-04-29 09:10:03.663750"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMovie Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "movies"[0m
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:10:27 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:6
+  Rendered movies/_movie.html.erb (Duration: 0.2ms | Allocations: 217)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 4.1ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.3ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 24.9ms | Allocations: 28073)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 43466)
+Completed 200 OK in 37ms (Views: 34.1ms | ActiveRecord: 1.3ms | Allocations: 45487)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:20:47 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (1.8ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:7
+  Rendered movies/_movie.html.erb (Duration: 0.3ms | Allocations: 193)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 20.9ms | Allocations: 23104)
+  Rendered layout layouts/application.html.erb (Duration: 32.9ms | Allocations: 38445)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 2.3ms | Allocations: 40447)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:21:08 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  Rendered movies/_movie.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.2ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 19.6ms | Allocations: 23267)
+  Rendered layout layouts/application.html.erb (Duration: 30.6ms | Allocations: 38620)
+Completed 200 OK in 35ms (Views: 30.4ms | ActiveRecord: 1.8ms | Allocations: 40617)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:21:18 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:8
+  Rendered movies/_movie.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 16.7ms | Allocations: 23065)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | Allocations: 38404)
+Completed 200 OK in 30ms (Views: 25.1ms | ActiveRecord: 2.1ms | Allocations: 40401)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:27:15 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:9
+  Rendered movies/_movie.html.erb (Duration: 0.3ms | Allocations: 155)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 23033)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | Allocations: 38381)
+Completed 200 OK in 30ms (Views: 24.9ms | ActiveRecord: 2.1ms | Allocations: 40379)
+
+
+Started POST "/movies/search" for 127.0.0.1 at 2024-04-29 17:27:20 +0800
+Processing by MoviesController#search as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title_search"=>"wed", "commit"=>"Search"}
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.0ms | Allocations: 1229)
+
+
+Started POST "/movies/search" for 127.0.0.1 at 2024-04-29 17:27:21 +0800
+Processing by MoviesController#search as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title_search"=>"wedsdss", "commit"=>"Search"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 586)
+
+
+Started GET "/" for 127.0.0.1 at 2024-04-29 17:27:27 +0800
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.erb:9
+  Rendered movies/_movie.html.erb (Duration: 0.4ms | Allocations: 155)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 16)
+  Rendered movies/_movie.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered movies/index.html.erb within layouts/application (Duration: 15.6ms | Allocations: 23062)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | Allocations: 38434)
+Completed 200 OK in 36ms (Views: 31.0ms | ActiveRecord: 2.1ms | Allocations: 40431)
+
+
+Started POST "/movies/search" for 127.0.0.1 at 2024-04-29 17:27:29 +0800
+Processing by MoviesController#search as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title_search"=>"sdf"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 533)
+
+
+Started POST "/movies/search" for 127.0.0.1 at 2024-04-29 17:27:30 +0800
+Processing by MoviesController#search as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title_search"=>"sdfsdff"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 473)
+
+
+Started POST "/movies/search" for 127.0.0.1 at 2024-04-29 17:27:31 +0800
+Processing by MoviesController#search as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "title_search"=>"sdfsdffdds"}
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 461)
+
+
